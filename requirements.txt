@@ -1,0 +1,8 @@
+# For Webscrapping
+bs4
+pandas
+requests-html
+
+# For App
+streamlit
+matplotlib
