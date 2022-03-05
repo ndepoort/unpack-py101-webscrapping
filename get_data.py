@@ -5,16 +5,16 @@ from bs4 import BeautifulSoup
 from requests_html import HTMLSession
 
 
-def get_jd_url(keywords):
-    """Return the URL for a JD search based on a keyword"""
-    return f"https://search.jd.com/Search?keyword={quote(keywords)}"
-
-
 def url_2_soup(url):
     """Get the BeautifulSoup object for a URL"""
     session = HTMLSession()
     resp = session.get(url)
     return BeautifulSoup(resp.html.html, "html.parser")
+
+
+def get_jd_url(keywords):
+    """Return the URL for a JD search based on a keyword"""
+    return f"https://search.jd.com/Search?keyword={quote(keywords)}"
 
 
 def get_jd_image(prod):
