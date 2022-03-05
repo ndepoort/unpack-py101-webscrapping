@@ -4,7 +4,7 @@ import seaborn as sns
 import streamlit as st
 
 
-from project_process_data import get_exchange_rates, get_lego_df, get_lego_image_url
+from process_data import get_exchange_rates, get_lego_df, get_lego_image_url
 
 st.set_page_config(page_title="WebScrapping - PY101", page_icon="🛒", layout="wide")
 st.image("https://unpackai.github.io/unpackai_logo.svg")

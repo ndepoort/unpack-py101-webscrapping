@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 from forex_python.converter import CurrencyRates
 
-import project_get_data as data
+import get_data as data
 
 
 @st.cache(show_spinner=True)
