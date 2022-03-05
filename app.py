@@ -96,14 +96,14 @@ st.pyplot(fig_avg)
 
 
 st.header("Details:")
-with st.expander("Distribution of prices:"):
+with st.expander("Distribution of prices:", expanded=True):
     fig_all, ax_all = plt.subplots()
     sns.stripplot(
         x="legoName", y="price", hue="source", data=df, alpha=0.50, size=10, ax=ax_all
     )
     st.pyplot(fig_all)
 
-with st.expander("All prices:", expanded=True):
+with st.expander("All prices:"):
     st.table(df.drop(["image"], axis=1))
 
 
