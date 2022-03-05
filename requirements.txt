@@ -6,3 +6,5 @@ requests-html
 # For App
 streamlit
 matplotlib
+seaborn
+forex_python  # currency-exchange
