@@ -57,10 +57,6 @@ df = df[df.legoName.isin(SELECTED_LEGOS)]
 st.sidebar.header("Selected Websites:")
 list_websites = df.source.unique()
 # TODO: Add filtering on list of Websites (similar to filter of Legos)
-SELECTED_WEBSITES = [
-    website for website in list_websites if st.sidebar.checkbox(website, value=True)
-]
-df = df[df.source.isin(SELECTED_WEBSITES)]
 
 
 st.sidebar.header("Filtering by price:")
