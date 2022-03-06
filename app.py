@@ -12,7 +12,7 @@ st.title("WebScrapping of Lego Prices around the world 🌏")
 st.write("*by <name>*")
 # TODO: Update your name here (and potentially the title if you want)
 
-st.sidebar.button("Refresh Data", on_click=st.caching.clear_cache)
+st.sidebar.button("Refresh Data", on_click=st.legacy_caching.clear_cache)
 
 EXCHANGE_RATES = get_exchange_rates(["USD", "EUR", "GBP"])
 st.sidebar.header("Exchange Rates:")
