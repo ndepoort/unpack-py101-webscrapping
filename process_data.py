@@ -71,5 +71,5 @@ def get_lego_image_url(lego_id: int, df: pd.DataFrame) -> str:
     try:
         images = df[df.legoID == lego_id]["image"]
         return images.iloc[0]
-    except KeyError:
+    except (KeyError, IndexError):
         return ""
