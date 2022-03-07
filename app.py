@@ -100,7 +100,18 @@ with st.expander("Distribution of prices:", expanded=True):
     )
     st.pyplot(fig_all)
 
+@st.cache
+def convert_df(df):
+    # IMPORTANT: Cache the conversion to prevent computation on every rerun
+    return df.to_csv().encode('utf-8')
+
 with st.expander("All prices:"):
+    st.download_button(
+        label="Download Lego Prices",
+        data=convert_df(df),
+        file_name='leogs.csv',
+        mime='text/csv',
+    )
     st.table(df.drop(["image"], axis=1))
 
 
