@@ -109,7 +109,7 @@ with st.expander("All prices:"):
     st.download_button(
         label="Download Lego Prices",
         data=convert_df(df),
-        file_name='leogs.csv',
+        file_name='lego_prices.csv',
         mime='text/csv',
     )
     st.table(df.drop(["image"], axis=1))
