@@ -43,8 +43,7 @@ def get_df_jd(keywords):
 
 def get_amazon_url(keywords, domain="co.uk"):
     """Return the URL for an Amazon search based on a keyword"""
-  return f"https://www.amazon.{domain}/s?k={quote(keywords)}"
-
+    return f"https://www.amazon.{domain}/s?k={quote(keywords)}"
 
 
 def get_amazon_price(prod):
