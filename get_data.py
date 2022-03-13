@@ -69,15 +69,15 @@ def get_df_amazon(keywords, domain="co.uk"):
                          p.find("span", class_="a-price-fraction").text.strip())
         }
         for p in products
-         if p.find("h2", class_="a-size-mini") and p.find("span", class_="a-price-whole")
+         if p.find("h2", class_="a-size-mini") and           p.find("span", class_="a-price-whole")
             
         
     ]
     return pd.DataFrame(data_products)
 
-df = get_df_amazon("harry potter")
-print(df.describe())
-df
+    df = get_df_amazon("harry potter")
+    #print(df.describe())
+  df
 
 
 def get_newegg_url(keywords):
