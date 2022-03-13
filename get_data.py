@@ -43,18 +43,41 @@ def get_df_jd(keywords):
 
 def get_amazon_url(keywords, domain="co.uk"):
     """Return the URL for an Amazon search based on a keyword"""
-    ...
+   return f"https://www.amazon.{domain}/s?k={quote(keywords)}"
 
 
 
 def get_amazon_price(prod):
     """Get the price of a given Amazon product"""
-    ...
+    price_str =  prod.find("span", class_="a-price").find("span", class_="a-offscreen")
+    digits = re.findall(r"\d+", price_str.text)
+    if len(digits) == 1:
+        return float(digits[0])
+    elif len(digits) > 1:
+        return float("".join(digits[:-1]) + "." + digits[-1])
 
 
 def get_df_amazon(keywords, domain="co.uk"):
     """Get a dataframe for the results of a Amazon search"""
-    ...
+    soup = amazon_2_soup(keywords)
+    products = soup.find("div", {"class": "s-matching-dir"}).find_all("div", {"class" :"sg-col-inner"})
+    print(f"Found {len(products)} products")
+    data_products = [
+        {
+          "name": p.find("h2", class_="a-size-mini").find("span").text.strip(),
+          "price": float(p.find("span", class_="a-price-whole").text.strip()+
+                         p.find("span", class_="a-price-fraction").text.strip())
+        }
+        for p in products
+         if p.find("h2", class_="a-size-mini") and p.find("span", class_="a-price-whole")
+            
+        
+    ]
+    return pd.DataFrame(data_products)
+
+df = get_df_amazon("harry potter")
+print(df.describe())
+df
 
 
 def get_newegg_url(keywords):
